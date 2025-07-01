@@ -1,5 +1,5 @@
 import re
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 import numpy
 import torch
@@ -69,7 +69,7 @@ def detect_repeat_token(predicted_tokens: List[int], max_repeats: int = 40):
     return last_n[-unique_tokens:] == last_n[-unique_tokens * 2 : -unique_tokens]
 
 
-def sort_text_lines(lines: List[TextLine] | List[dict], tolerance=1.25):
+def sort_text_lines(lines: Union[List[TextLine], List[dict]], tolerance=1.25):
     # Sorts in reading order.  Not 100% accurate, this should only
     # be used as a starting point for more advanced sorting.
     vertical_groups = {}

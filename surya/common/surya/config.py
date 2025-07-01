@@ -1,3 +1,5 @@
+from typing import Optional
+
 from transformers import PretrainedConfig
 
 from surya.common.s3 import S3DownloaderMixin
@@ -23,7 +25,7 @@ class SuryaModelConfig(S3DownloaderMixin, PretrainedConfig):
         special_ocr_tokens=None,
         vision_encoder=None,
         decoder=None,
-        tasks: dict | None = None,
+        tasks: Optional[dict] = None,
         bbox_embed_size: int = 64,
         register_token_ids=(4, 5, 6, 7),
         unmask_image: bool = False,

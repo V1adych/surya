@@ -32,7 +32,7 @@ class TextWord(BaseChar):
 class TextLine(BaseChar):
     chars: List[TextChar]  # Individual characters in the line
     original_text_good: bool = False
-    words: List[TextWord] | None = None
+    words: Optional[List[TextWord]] = None
 
 
 class OCRResult(BaseModel):

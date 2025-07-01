@@ -172,7 +172,7 @@ class PolygonBox(BaseModel):
         intersection = self.intersection_area(other, x_margin, y_margin)
         return intersection / self.area
 
-    def shift(self, x_shift: float | None = None, y_shift: float | None = None):
+    def shift(self, x_shift: Optional[float] = None, y_shift: Optional[float] = None):
         if x_shift is not None:
             for corner in self.polygon:
                 corner[0] += x_shift

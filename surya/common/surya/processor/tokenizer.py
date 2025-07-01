@@ -1,6 +1,6 @@
 import html
 import re
-from typing import List, Union, Dict
+from typing import List, Union, Dict, Optional
 import numpy as np
 import torch
 from tokenizers import AddedToken
@@ -26,8 +26,8 @@ def create_token_regex(tokens):
 class InnerOCRTokenizer:
     def __init__(
         self,
-        special_tokens: Dict[str, list] | None = None,
-        qwen_tokenizer: Qwen2OriginalTokenizer | None = None,
+        special_tokens: Optional[Dict[str, list]] = None,
+        qwen_tokenizer: Optional[Qwen2OriginalTokenizer] = None,
         **kwargs,
     ):
         self.qwen_tokenizer = qwen_tokenizer
@@ -228,7 +228,7 @@ class Qwen2Tokenizer(S3DownloaderMixin, Qwen2OriginalTokenizer):
 class SuryaOCRTokenizer(S3DownloaderMixin, PreTrainedTokenizer):
     def __init__(
         self,
-        special_tokens: Dict[str, list] | None = None,
+        special_tokens: Optional[Dict[str, list]] = None,
         model_checkpoint: str = settings.RECOGNITION_MODEL_CHECKPOINT,
         **kwargs,
     ):
